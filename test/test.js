@@ -16,6 +16,9 @@ describe('domain-regex', function() {
       'notvalid.com.',
       '.notvalid.com',
       'not_valid.com',
+      '-notvalid.com',
+      'notvalid-.com',
+      'notvalid.com-',
       'this.istoolongofatldrighthere.com',
       'thisiswaytoolongofatldoverherebecausethereisalimitof64thisiswaytoolongofatldoverherebecausethereisalimitof64.com'
     ];
