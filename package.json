@@ -1,0 +1,31 @@
+{
+  "name": "domain-regex",
+  "version": "0.0.1",
+  "description": "A regular expression for valid domains.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/johnotander/domain-regex.git"
+  },
+  "keywords": [
+    "domain",
+    "regex",
+    "regexp",
+    "regular-expression"
+  ],
+  "author": "John Otander <johnotander@gmail.com> (http://johnotander.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/johnotander/domain-regex/issues"
+  },
+  "homepage": "https://github.com/johnotander/domain-regex",
+  "devDependencies": {
+    "mocha": "^2.0.1"
+  }
+}
