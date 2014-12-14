@@ -3,7 +3,11 @@
 [![Build Status](https://travis-ci.org/johnotander/domain-regex.svg?branch=master)](https://travis-ci.org/johnotander/domain-regex)
 
 A regular expression for matching valid domain names. This regex seeks to support all
-domains with TLDs listed on [publicsuffix.org](https://publicsuffix.org/list/effective_tld_names.dat).
+domains with TLDs listed on
+[publicsuffix.org](https://publicsuffix.org/list/effective_tld_names.dat) including
+[IDNs](http://en.wikipedia.org/wiki/Internationalized_domain_name).
+
+It currently works for most non-IDNs, IDN support is a work in progress.
 
 In the near future this will be likely moved to <https://github.com/regexps>.
 
