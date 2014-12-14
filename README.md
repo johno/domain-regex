@@ -7,8 +7,6 @@ domains with TLDs listed on
 [publicsuffix.org](https://publicsuffix.org/list/effective_tld_names.dat) including
 [IDNs](http://en.wikipedia.org/wiki/Internationalized_domain_name).
 
-It currently works for most non-IDNs, IDN support is a work in progress.
-
 In the near future this will be likely moved to <https://github.com/regexps>.
 
 ## Installation
@@ -23,13 +21,25 @@ npm i --save domain-regex
 var domain = require('domain-regex');
 
 domain().test('example.aerodrome.aero') // => true
-domain().test('a.sub.domain.org')        // => true
-domain().test('invalid_domain')          // => false
+domain().test('a.sub.domain.org')       // => true
+domain().test('invalid_domain')         // => false
+```
+
+### IDN Support
+
+This regex requires any Unicode character to be converted to its ASCII equivalent. This can be done
+with a library like [punycode.js](https://github.com/bestiejs/punycode.js).
+
+```javascript
+var domainRegex = require('domain-regex');
+var punyCode = require('punycode');
+
+domainRegex().test(punycode.toASCII('岡山.jp')) // => true
 ```
 
 ## Acknowledgements
 
-* Regex adapted from <http://stackoverflow.com/questions/10306690/domain-name-validation-with-regex>.
+* Regex adapted from <https://www.safaribooksonline.com/library/view/regular-expressions-cookbook/9781449327453/ch08s15.html>.
 
 ## License
 

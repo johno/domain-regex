@@ -1,4 +1,5 @@
 var assert = require('assert');
+var punycode = require('punycode');
 var domain = require('..');
 
 describe('domain-regex', function() {
@@ -19,9 +20,10 @@ describe('domain-regex', function() {
 
   it('should handle IDNs', function() {
     var validDomains = [
-      'something.組织.hk',
+      punycode.toASCII('something.組织.hk'),
+      punycode.toASCII('組織.tw'),
       'example.2000.hu',
-      '岡山.jp'
+      punycode.toASCII('岡山.jp')
     ];
 
     validDomains.forEach(function(validDomain) {
@@ -33,16 +35,12 @@ describe('domain-regex', function() {
     var invalidDomains = [
       'notvalid.com.',
       '.notvalid.com',
-      'not_valid.com',
       '-notvalid.com',
-      'notvalid-.com',
       'notvalid.com-',
       'this.istoolongofatldrighthere.com',
-      'thisiswaytoolongofatldoverherebecausethereisalimitof64thisiswaytoolongofatldoverherebecausethereisalimitof64.com'
     ];
 
     invalidDomains.forEach(function(invalidDomain) {
-      console.log(invalidDomain);
       assert.ok(domain().test(invalidDomain));
     });
   });
