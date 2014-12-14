@@ -5,7 +5,7 @@ describe('domain-regex', function() {
 
   // https://publicsuffix.org/list/effective_tld_names.dat
   it('should handle a wide array of domains', function() {
-    var validDomains = ['some-example.construction', 'example.co.uk', 'example.aerodrome.aero'];
+    var validDomains = ['some-example.construction', 'example.co.uk', 'example.aerodrome.aero', 'g.co'];
     validDomains.forEach(function(validDomain) {
       assert.equal(domain().test(validDomain), true);
     });
@@ -16,7 +16,7 @@ describe('domain-regex', function() {
       'notvalid.com.',
       '.notvalid.com',
       'not_valid.com',
-      '',
+      'this.istoolongofatldrighthere.com',
       'thisiswaytoolongofatldoverherebecausethereisalimitof64thisiswaytoolongofatldoverherebecausethereisalimitof64.com'
     ];
     invalidDomains.forEach(function(invalidDomain) {
